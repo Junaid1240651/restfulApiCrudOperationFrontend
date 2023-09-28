@@ -227,13 +227,13 @@ body {
   margin: 5px 0px 5px 10px;
 }
 .addBtnData {
-  padding: 20px 60px;
-  font-size: 30px;
+  font-size: 20px;
   color: white;
   background-color: #1890ff;
   border: none;
   border-radius: 10px;
-  margin-top: 10px;
+  width: 250px;
+  height: 50px;
 }
 .mainDiv {
   display: flex;
@@ -243,4 +243,19 @@ body {
 .mainDiv > div:nth-child(1) {
   display: flex;
   justify-content: center;
+}
+
+.SearchDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.SearchDiv > input {
+  width: 500px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
 }

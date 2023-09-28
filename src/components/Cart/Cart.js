@@ -127,16 +127,36 @@ const Cart = () => {
     fetchData();
   }, []);
 
+  const [searchQuery, setSearchQuery] = useState(""); // State variable to store search query
+
+  // ...
+  const searchBackend = async (query) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/search/${query}`);
+      setApiData(response.data);
+    } catch (error) {
+      console.error("Error searching data:", error);
+    }
+  };
+
+  // Event handler for input change (typing in the search input field)
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setSearchQuery(value); // Update search query state
+    searchBackend(value); // Send search query to the backend
+  };
+
   console.log(apidata);
 
   return (
     <>
       {apidata ? (
         <div className="mainDiv">
-          <div>
+          <div className="SearchDiv">
             <button onClick={addDataHandler} className="addBtnData">
               Add Cart Data
             </button>
+            <input onChange={handleInputChange} placeholder="Search" />
           </div>
 
           <div className="container">
